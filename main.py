@@ -96,6 +96,7 @@ def get_customers_ratings(data):
         data = get_data()
         data = data[1:]
         id_item = input("Enter the id of the item: ")
+        id_item = int(id_item) - 1
         header = ['customer_name', 'rating']
         rows = []
         # convert string to object
@@ -104,14 +105,14 @@ def get_customers_ratings(data):
 
             rows.append([item['name'], item['rating']])
         print(tabulate(rows, headers=header, tablefmt='grid'))
-    except ValueError:
+    except:
         print("Invalid input")
 
 
-user_input = ''
-
-while user_input != '0':
-    user_input = input("""
+if __name__ == '__main__':
+    user_input = ''
+    while user_input != '0':
+        user_input = input("""
 Please select an option: \n
 1) Display data
 2) Calculate the total sales for each day of the week
@@ -119,15 +120,15 @@ Please select an option: \n
 4) Show details of customers rating
 0) Exit\n
 Select an option: """)
-    data = get_data()
-    if user_input == "1":
-        show_data(data)
-    elif user_input == "2":
-        cal_sales_day(data)
-    elif user_input == "3":
-        get_most_popular_item(data)
-    elif user_input == "4":
-        get_customers_ratings(data)
-    else:
-        print("Option not available")
-    input("Press enter to continue")
+        data = get_data()
+        if user_input == "1":
+            show_data(data)
+        elif user_input == "2":
+            cal_sales_day(data)
+        elif user_input == "3":
+            get_most_popular_item(data)
+        elif user_input == "4":
+            get_customers_ratings(data)
+        else:
+            print("Option not available")
+        input("Press enter to continue")
