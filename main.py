@@ -68,10 +68,9 @@ def cal_sales_day(data):
 
     # Group data by date
     grouped_data = itertools.groupby(data, key=lambda x: x[6])
-
+    table = [['Dates', 'Sales']]
     # Print grouped data
     for date, group in grouped_data:
-        print(f"Date: {date}") if date != "date" else None
         sales_per_day = 0
         for item in group:
 
@@ -79,13 +78,15 @@ def cal_sales_day(data):
                 sales_per_day = sales_per_day + float(item[1])
             except ValueError:
                 pass
-        print(f"{sales_per_day} AUD") if sales_per_day != 0 else None
+        table.append([date, f'{round(sales_per_day,2)} AUD']
+                     ) if date != "date" else None
+    print(tabulate(table, headers='firstrow', tablefmt='grid'))
 
 
 user_input = input("""
-                   Please enter something: \n
-                   1) Display data
-                   2) Calculate the total sales for each day of the week
+Please select an option: \n
+1) Display data
+2) Calculate the total sales for each day of the week
                    """)
 data = get_data()
 if user_input == "1":
