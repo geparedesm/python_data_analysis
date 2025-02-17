@@ -19,20 +19,7 @@ def get_data():
     with open('menu.csv', 'r') as file:
         reader = csv.reader(file)
         data = list(reader)
-        return data
-
-
-def show_data(data):
-    """
-    Prints the menu data in a table format, with the following calculations:
-        - row numbers
-        - average customer rating for each menu item
-        - total of customer ratings for each menu item
-
-    Args:
-        data (list): A list of lists, where each sublist represents a row in the CSV file.
-    """
-    headers = data[0]
+        headers = data[0]
     # Insert row numbers
     rows = data[1:]
     for i, row in enumerate(rows, start=1):
@@ -53,21 +40,33 @@ def show_data(data):
         else:
             avg_rating = 0
 
-        row[4] = avg_rating
+        row[4] = round(avg_rating, 2)
         # Calculate total of customer ratings
+        data = [headers] + rows
 
+    return data
+
+
+def show_data(data):
+    headers = data[0]
+    rows = data[1:]
+
+    for row in data[1:]:
+        customer_rating = row[6]
+        rating_length = len(eval(customer_rating))
         row[6] = rating_length
+    headers[5] = "total_customer_ratings"
     data = [headers] + rows
     print(tabulate(data, headers='firstrow', tablefmt='grid'))
 
 
 def cal_sales_day(data):
-
+    data = data[1:]
     # Sort data by date
-    data.sort(key=lambda x: x[6])
+    data.sort(key=lambda x: x[7])
 
     # Group data by date
-    grouped_data = itertools.groupby(data, key=lambda x: x[6])
+    grouped_data = itertools.groupby(data, key=lambda x: x[7])
     table = [['Dates', 'Sales']]
     # Print grouped data
     for date, group in grouped_data:
@@ -75,23 +74,60 @@ def cal_sales_day(data):
         for item in group:
 
             try:
-                sales_per_day = sales_per_day + float(item[1])
+                sales_per_day = sales_per_day + float(item[2])
             except ValueError:
                 pass
         table.append([date, f'{round(sales_per_day,2)} AUD']
-                     ) if date != "date" else None
+                     )
     print(tabulate(table, headers='firstrow', tablefmt='grid'))
 
 
-user_input = input("""
+def get_most_popular_item(data):
+    data = data[1:]
+    most_popular_item = max(data, key=lambda x: x[4])
+    table = [['Name', 'Rating']]
+    table.append([most_popular_item[0], most_popular_item[4]])
+    print(tabulate(table, headers='firstrow', tablefmt='grid'))
+
+
+def get_customers_ratings(data):
+    try:
+        show_data(data)
+        data = get_data()
+        data = data[1:]
+        id_item = input("Enter the id of the item: ")
+        header = ['customer_name', 'rating']
+        rows = []
+        # convert string to object
+
+        for item in eval(data[int(id_item)][6]):
+
+            rows.append([item['name'], item['rating']])
+        print(tabulate(rows, headers=header, tablefmt='grid'))
+    except ValueError:
+        print("Invalid input")
+
+
+user_input = ''
+
+while user_input != '0':
+    user_input = input("""
 Please select an option: \n
 1) Display data
 2) Calculate the total sales for each day of the week
-                   """)
-data = get_data()
-if user_input == "1":
-    show_data(data)
-elif user_input == "2":
-    cal_sales_day(data)
-else:
-    print()
+3) Most popular menu item based on customer ratings
+4) Show details of customers rating
+0) Exit\n
+Select an option: """)
+    data = get_data()
+    if user_input == "1":
+        show_data(data)
+    elif user_input == "2":
+        cal_sales_day(data)
+    elif user_input == "3":
+        get_most_popular_item(data)
+    elif user_input == "4":
+        get_customers_ratings(data)
+    else:
+        print("Option not available")
+    input("Press enter to continue")
