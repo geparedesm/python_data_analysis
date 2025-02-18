@@ -1,0 +1,29 @@
+python\_data\_analysis package
+==============================
+
+Submodules
+----------
+
+python\_data\_analysis.generate\_data module
+--------------------------------------------
+
+.. automodule:: python_data_analysis.generate_data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+python\_data\_analysis.main module
+----------------------------------
+
+.. automodule:: python_data_analysis.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: python_data_analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,35 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter C
+  \item \spxentry{cal\_sales\_day()}\spxextra{in module main}, \hyperpage{3}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{fake\_customer\_rating()}\spxextra{in module generate\_data}, \hyperpage{3}
+  \item \spxentry{fake\_food()}\spxextra{in module generate\_data}, \hyperpage{3}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{generate\_data}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{get\_customers\_ratings()}\spxextra{in module main}, \hyperpage{3}
+  \item \spxentry{get\_data()}\spxextra{in module main}, \hyperpage{4}
+  \item \spxentry{get\_most\_popular\_item()}\spxextra{in module main}, \hyperpage{4}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{main}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{module}
+    \subitem \spxentry{generate\_data}, \hyperpage{3}
+    \subitem \spxentry{main}, \hyperpage{3}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{show\_data()}\spxextra{in module main}, \hyperpage{4}
+
+\end{sphinxtheindex}

@@ -1,0 +1,11 @@
+\indexentry{module@\spxentry{module}!generate\_data@\spxentry{generate\_data}|hyperpage}{3}
+\indexentry{generate\_data@\spxentry{generate\_data}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{fake\_customer\_rating() (in module generate\_data)@\spxentry{fake\_customer\_rating()}\spxextra{in module generate\_data}|hyperpage}{3}
+\indexentry{fake\_food() (in module generate\_data)@\spxentry{fake\_food()}\spxextra{in module generate\_data}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!main@\spxentry{main}|hyperpage}{3}
+\indexentry{main@\spxentry{main}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{cal\_sales\_day() (in module main)@\spxentry{cal\_sales\_day()}\spxextra{in module main}|hyperpage}{3}
+\indexentry{get\_customers\_ratings() (in module main)@\spxentry{get\_customers\_ratings()}\spxextra{in module main}|hyperpage}{3}
+\indexentry{get\_data() (in module main)@\spxentry{get\_data()}\spxextra{in module main}|hyperpage}{4}
+\indexentry{get\_most\_popular\_item() (in module main)@\spxentry{get\_most\_popular\_item()}\spxextra{in module main}|hyperpage}{4}
+\indexentry{show\_data() (in module main)@\spxentry{show\_data()}\spxextra{in module main}|hyperpage}{4}
